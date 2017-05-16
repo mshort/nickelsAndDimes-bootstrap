@@ -1,0 +1,1356 @@
+/* **
+TB Mega Menu does not support custom break points.
+To prevent premature switching to toggle, the following 
+files were modified in the module's CSS directory.
+768px was added anywhere 979px appeared as min-width.
+
+bootstrap.css
+default.css
+base.css
+
+The javascript also needed to be modified, changing
+980 to 769 in tb-megamenu-frontend.js
+
+Future releases of the TB Mega Menu may enable
+custom breakpoints. Until then, each subsequent release
+will need to be hacked.
+
+See for more info: https://www.drupal.org/node/2050431
+
+**
+   ================================================== */
+
+@font-face {
+    font-family: 'chunkfiveroman';
+    src: url('fonts/chunkfive/chunkfive-webfont.eot');
+    src: url('fonts/chunkfive/chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/chunkfive/chunkfive-webfont.woff2') format('woff2'),
+         url('fonts/chunkfive/chunkfive-webfont.woff') format('woff'),
+         url('fonts/chunkfive/chunkfive-webfont.ttf') format('truetype'),
+         url('fonts/chunkfive/chunkfive-webfont.svg#chunkfiveroman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'oldnewspapertypesregular';
+    src: url('fonts/oldnewspaper/oldnewspapertypes-webfont.eot');
+    src: url('fonts/oldnewspaper/oldnewspapertypes-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/oldnewspaper/oldnewspapertypes-webfont.woff2') format('woff2'),
+         url('fonts/oldnewspaper/oldnewspapertypes-webfont.woff') format('woff'),
+         url('fonts/oldnewspaper/oldnewspapertypes-webfont.ttf') format('truetype'),
+         url('fonts/oldnewspaper/oldnewspapertypes-webfont.svg#oldnewspapertypesregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'rust';
+    src: url('fonts/rust/nexarustsans-black-webfont.eot');
+    src: url('fonts/rust/nexarustsans-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rust/nexarustsans-black-webfont.woff2') format('woff2'),
+         url('fonts/rust/nexarustsans-black-webfont.woff') format('woff'),
+         url('fonts/rust/nexarustsans-black-webfont.ttf') format('truetype'),
+         url('fonts/rust/nexarustsans-black-webfont.svg#nexa_rust_sansblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'rustshadow';
+    src: url('fonts/rustshadow/nexarustslab-blackshadow01-webfont.eot');
+    src: url('fonts/rustshadow/nexarustslab-blackshadow01-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rustshadow/nexarustslab-blackshadow01-webfont.woff2') format('woff2'),
+         url('fonts/rustshadow/nexarustslab-blackshadow01-webfont.woff') format('woff'),
+         url('fonts/rustshadow/nexarustslab-blackshadow01-webfont.ttf') format('truetype'),
+         url('fonts/rustshadow/nexarustslab-blackshadow01-webfont.svg#nexa_rust_slabblack_shadow_01') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* * Mega Menu style *
+   ================================================== */
+
+.nav-collapse.tb-mega-collapse.collapse.in {
+  margin: 0
+}
+
+ul.tb-megamenu-nav {
+  display: table;
+  width: 100%;
+}
+
+li.tb-megamenu-item.level-1 {
+  display: table-cell;
+  text-align: center;
+  float: none;
+}
+
+.tb-megamenu .nav > li > a {
+  color: #fff;
+  background-color: #0000;
+  font-size: 16px;
+  font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 0;
+  padding: 15px;
+}
+
+ul.mega-nav.level-1 > li > a {
+  color: #6a3215;
+}
+
+.tb-megamenu .dropdown-menu li > a, .tb-megamenu .dropdown-menu li > a:hover, .tb-megamenu .dropdown-menu li > a:focus, .tb-megamenu .dropdown-submenu:hover > a {
+  color: #6a3215;
+  border: none;
+}
+
+.tb-megamenu .nav > .active > a,
+.tb-megamenu .nav > .active > a:hover,
+.tb-megamenu .nav > .active > a:focus {
+  background-color: #000;
+}
+
+.tb-megamenu .dropdown-menu .active > a, .tb-megamenu .dropdown-menu .active > a:hover {
+    color: #eee;
+    text-decoration: none;
+    outline: 0;
+    background-image: none;
+    background-color: #fff;
+    color: #333;
+}
+
+.tb-megamenu .nav > li > a:focus,
+.tb-megamenu .nav > li > a:hover,
+.tb-megamenu .nav li.dropdown.open > .dropdown-toggle,
+.btn-link,
+.pagination > li > a,
+.pagination > li > a:hover {
+  color: #333;
+}
+
+.tb-megamenu .dropdown-menu {
+  opacity: .9;
+  padding: 1em;
+  border: 0px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  border-radius: 4px;
+  background-clip: padding-box;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.navbar-nav a {
+  color: #222;
+}
+
+a.mega-group-title {
+  font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1em;
+}
+
+.tb-megamenu .nav li.dropdown.active > .dropdown-toggle,
+.tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: #000;
+  color: #fff;
+}
+
+.tb-megamenu .nav > li.dropdown.open.active > a:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.social > div {
+  padding: 0 !important;
+}
+
+/* ===[ Enforces a width for collection link menu items ]=== */
+
+.collection_home {
+  width: 35%
+}
+
+/* ===[ Resize slideshow image width to fill container ]=== */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img,
+.img-slideshow img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===[ Remove navbar background and border ]=== */
+
+.navbar-default {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+/* ===[ Sidebar menu and views styling ]=== */
+
+.region-sidebar-first > section > ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.region.region-sidebar-first.well {
+  border: none;
+  background: none;
+}
+
+.region-sidebar-first > section > ul > li > a, .region-sidebar-first > section > ul > li > span, .region-sidebar-first > section.block-views > h2 {
+  background-color: #6a3215;
+  color: #fff;
+  margin-bottom: 2px;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+li.expanded.dropdown > ul {
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+li.expanded.dropdown > ul > li, .region-sidebar-first > section.block-views span {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  border: 1px solid #DDD;
+}
+
+.navbar-right {
+  padding-right: 15px
+}
+
+#logo {
+  padding-bottom: 30px;
+  padding-top: 15px;
+}
+
+span.logo-head {
+  font-size: 44px;
+  vertical-align: middle;
+  font-family: rustshadow;
+  color: #eae6d4;
+}
+
+span.logo-sub {
+  font-size: 16px;
+  vertical-align: middle;
+  font-family: rust;
+  color: #eae6d4;
+}
+
+/* ===[ Change button background from blue ]=== */
+
+.pagination > .active > span {
+  background-color: #6a3215;
+  border-color: #6a3215;
+}
+
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #6a3215;
+  border-color: #6a3215;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #333 !important;
+  color: #fff;
+  padding: 7px 10px;
+  border-radius: 2px;
+  border-color: #333 !important;
+  border: 1px solid transparent;
+}
+
+.form-item-islandora-simple-search-query {
+  padding: 6px 9px
+}
+
+/* ===[ Fixes margins and padding between header and navbar ]=== */
+
+/* ===[ Aligns search box correctly ]=== */
+
+header#navbar,
+.navbar-collapse.collapse {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.news-date {
+  color: #6a3215;
+  font-weight: 700;
+}
+
+.news-content {
+  padding-bottom: 10px;
+}
+
+/* ===[ Increase max-width of navbar so that it is equal to max-width of main-container ]=== */
+
+@media screen and (min-width: 1200px) { 
+    .navbar.container {
+      max-width: 1170px
+    }
+}
+
+#collapse-search {
+  float: right;
+  margin-right: 1em;
+}
+
+.sf-links {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+header#header {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* ===[ Fixes a problem with the IA bookviewer, which causes the right page arrow to appear beneath viewer ]=== */
+
+div#BRpage {
+  padding: 0
+}
+
+#mini-panel-front h2,
+#mini-panel-alternative_front h2 {
+  background-color: #222;
+  color: #fff;
+  display: block;
+  padding: .5em .5em;
+  font-size: 1.35em;
+  font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+h2.block-title {
+  display: block;
+  padding: .5em .5em;
+  font-size: 1.35em;
+  font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+  font-weight: bold;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+}
+
+/* ===[ Start styling ]=== */
+
+body {
+  background-color: #DBCE9A;
+  font-family: "oldnewspapertypesregular", Helvetica, sans-serif;
+}
+
+.main-container {
+  background-color: #eae6d4;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 60px;
+}
+
+.banner {
+  background-color: #AC5124;
+  margin: 0;
+}
+
+#book-viewer,
+.niu-artfl-object,
+.islandora,
+.block-islandora-blocks {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#islandora-solr-top {
+  margin-top: 15px
+}
+
+.islandora-solr-facet-wrapper > h3, #block-islandora-solr-current-query h3 {
+  font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+  font-size: 1.35em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+  padding: .5em .5em;
+}
+
+.islandora-solr-facet-pages-wrapper {
+  padding: 15px
+}
+
+.islandora-book-metadata {
+  padding-bottom: 15px
+}
+
+a,
+a:hover,
+a:focus {
+  color: #6a3215;
+}
+
+li.tb-megamenu-item.level-1.mega.niudl_home_link {
+  float: right
+}
+
+/* ===[ Fix spacing in facets ]=== */
+
+.plusminus {
+  float: none
+}
+
+.block ul.islandora-solr-facet {
+  padding: 0
+}
+
+.islandora-solr-facet > li {
+  list-style: none
+}
+
+ul.islandora-solr-filter-list.filter-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.favicons {
+  text-align: center
+}
+
+.favicons a {
+  margin: 0 3px
+}
+
+/* ===[ Displays Font Awesome icons in-line ]=== */
+
+.tb-megamenu .dropdown-menu a.fa-icon,
+.favicons a.fa-icon {
+  display: inline-block;
+  font-size: 25px;
+  padding: 3px 5px;
+  color: #333;
+}
+
+@media screen and (max-width: 767px) { 
+    .navbar-collapse.collapse {
+      display: inline
+    }
+}
+
+/* ===[ Changes pagnination background color from blue to red ]=== */
+
+/* ===[ Adds margin to front page info panels ]=== */
+
+#block-panels-mini-front {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* ===[ Adds margin to bottom of container so that there is no overlap with footer ]=== */
+
+/* ***** footer elements *****
+   ================================================== */
+
+.footer {
+  background-color: #222;
+  margin-top: 0;
+  padding: 0;
+}
+
+footer h3,
+footer p,
+footer li {
+  color: #fff
+}
+
+footer h3 {
+  font-size: 1.35em;
+  font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+  letter-spacing: 3px;
+}
+
+footer p,
+footer li {
+  font-size: .8em
+}
+
+footer a,
+footer a:visited,
+footer a:hover {
+  color: #fff
+}
+
+footer p {
+  text-align: center
+}
+
+footer p a:hover,
+footer li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+footer ul.about-list {
+  list-style-type: none;
+  border-left: 1px solid #fff;
+  line-height: 1.5em;
+  padding-left: .5em;
+}
+
+footer .niu-home {
+  position: relative;
+  top: -32px;
+}
+
+dl.islandora-metadata-fields {
+  width: 100%
+}
+
+dl.islandora-metadata-fields dt {
+  width: 30%;
+  padding: 5px;
+  margin: 0;
+  float: left;
+  clear: left;
+  font-weight: bold;
+}
+
+dl.islandora-metadata-fields dd {
+  width: 70%;
+  overflow: hidden;
+}
+
+div#BRinfo {
+  height: 620px
+}
+
+div#BRfulltext .BRfloat {
+  height: auto !important
+}
+
+.textTop {
+  font-size: 12px
+}
+
+@media (max-width:767px) { 
+    /* ===[ Start new Quick Links Mobile Menu ]=== */
+    
+    #logo {
+      padding-bottom: 10px;
+    }
+
+    span.logo-head {
+      font-size: 23px;
+    }
+    span.logo-sub {
+      font-size: 13px;
+    }
+    .navbar-collapse.quicklinks {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    ul.quicklinks {
+      float: left;
+      border-top: 1px solid #fff;
+      padding: 0;
+      list-style-type: none;
+      border-top: 0px;
+      background-color: #6a3215;
+      margin: 0 1em 1em 0em;
+      width: 100%;
+    }
+
+    ul.quicklinks li {
+      color: #FFF;
+      padding: .25em;
+    }
+
+    ul.quicklinks ul {
+      float: left;
+      width: 50%;
+      list-style-type: none;
+      margin: 0em;
+      padding: 0em;
+    }
+
+    .quicklinks li a {
+      color: #FFF;
+      display: block;
+      text-align: left;
+      padding: .5em .5em;
+      margin: 0;
+      border: 1px solid #fff;
+      font-size: .85em;
+    }
+
+    /* ===[ End quicklinks mobile menu ]=== */
+
+    /* ***** global mobile nav elements *****
+       ================================================== */
+
+    ul.navbar-text.globalmobile {
+      list-style: none;
+      margin-top: 1em;
+      margin-right: 0em;
+      padding: 0px;
+    }
+
+    ul.navbar-text.globalmobile li {
+      font-size: .9em;
+      float: left;
+    }
+
+    ul.navbar-text.globalmobile li a {
+      color: #222;
+      padding-top: 5px;
+      padding-bottom: 1em;
+      padding-right: 11px;
+      padding-left: 5px;
+      text-align: center;
+    }
+
+    ul.navbar-text.globalmobile li.login a {
+      color: #6a3215;
+      font-size: .9em;
+    }
+
+    ul.navbar-text.globalmobile li.login ul.dropdown-menu {
+      position: absolute;
+      left: 0em;
+    }
+
+    ul.navbar-text.globalmobile li.login ul.dropdown-menu li a {
+      font-size: .95em;
+      padding: 1em;
+      display: block;
+      text-align: center;
+    }
+
+    ul.globalmobile {
+      list-style: none;
+      margin-top: 0em;
+      margin-right: 0em;
+      padding: 0px;
+    }
+
+    ul.globalmobile li {
+      font-size: .85em;
+      float: left;
+      margin: .5em 0em .5em 0em;
+    }
+
+    ul.globalmobile li a {
+      color: #222;
+      padding-right: .5em;
+      padding-left: .5em;
+      text-align: center;
+    }
+
+    ul.globalmobile {
+      display: table
+    }
+
+    /* * end globalmobile elements *
+       ================================================== */
+
+    .tb-megamenu .nav-collapse .nav > li > a,
+    .tb-megamenu .nav-collapse .dropdown-menu a {
+      border: 0
+    }
+
+    ul.tb-megamenu-nav {
+      display: inline
+    }
+
+    li.tb-megamenu-item.level-1 {
+      display: block
+    }
+
+    .tb-megamenu .nav-collapse.collapse.in {
+      position: static
+    }
+
+    .tb-megamenu-column-inner {
+      color: #333;
+      float: none;
+      width: auto;
+      margin-top: 0px;
+      color: #333;
+      background-color: #fff;
+      opacity: .95;
+      border: 0px none;
+      box-shadow: none;
+      padding-left: 2em;
+    }
+
+    .tb-megamenu .dropdown-menu .mega-nav > li > a {
+      color: #6a3215;
+      border: none;
+    }
+
+    .tb-megamenu .nav-collapse .nav > li.active > a:hover,
+    .tb-megamenu .nav-collapse .nav > li > a:hover {
+      background-color: #fff;
+      color: #333;
+    }
+
+    li.tb-megamenu-item.level-1 {
+      text-align: -webkit-match-parent
+    }
+
+    .form-item {
+      float: left
+    }
+
+    .btn-primary {
+      margin-top: 6px;
+      float: right;
+    }
+
+    #collapse-search {
+      float: left;
+      margin-left: 1em;
+    }
+
+    footer.home {
+      background-color: #AC5124;
+      position: relative;
+      top: 0px;
+      left: 0px;
+    }
+
+    footer {
+      position: relative;
+      top: 0px;
+      left: 0px;
+    }
+
+    footer ul.about-list {
+      list-style-type: none;
+      border-left: 0px solid #fff;
+      line-height: 1em;
+      padding-left: .5em;
+      font-size: 1.2em;
+      text-align: center;
+      margin-bottom: 2em;
+    }
+
+    footer ul.about-list li a {
+      border: 1px solid #ddd;
+      margin: 1em 0;
+      padding: .5em;
+      display: block;
+    }
+
+    footer ul.about-list li a:hover,
+    footer ul.about-list li a:focus {
+      text-decoration: none;
+      background-color: #ededed;
+      color: #333;
+    }
+
+    footer .athletics {
+      position: relative;
+      top: 0px;
+      margin-bottom: 2em;
+    }
+
+    footer .social {
+      position: relative;
+      top: 0px;
+      margin-bottom: 2em;
+    }
+
+    footer .niu-home {
+      position: relative;
+      top: -32px;
+    }
+
+    .navbar.mobilenav {
+      background-color: #AC5124;
+      padding-left: 15px;
+      margin-bottom: 0px;
+    }
+
+    .navbar.mobilenav button {
+      /*float: right;*/
+    }
+
+    .navbar.mobilenav button.navbar-toggle {
+      height: 36px;
+      width: 44px;
+      border-color: #333;
+      background-color: #333;
+      color: #fff;
+      font-size: 1em;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      margin-right: 1%;
+    }
+
+    .navbar.mobilenav .navbar-toggle .icon-bar {
+      background-color: #fff;
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 1px;
+    }
+}
+
+.featured-collection-grid.clearfix {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  display: inline-block;
+}
+
+.featured-collection-grid-item {
+  display: inline
+}
+
+dl.collection {
+  width: 5%;
+  min-width: 80px;
+  min-height: 180px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  margin: 1.5em 1.84%;
+  zoom: 1;
+}
+
+#block-block-17 {
+  background-color: #e8e8e8;
+  text-align: center;
+  margin-left: 12px;
+  margin-right: 6px;
+  margin-top: 20px;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#block-block-17 h2 {
+  background-color: #e8e8e8;
+  color: #6a3215;
+}
+
+.navbar-toggle {
+  float: left;
+  margin-left: 1em;
+}
+
+ul.navbar-nav.global li ul.dropdown-menu.quicklinks {
+  background-color: #6a3215;
+  border-top: 1px solid #6a3215;
+  z-index: 10000;
+}
+
+ul.navbar-nav.global li ul.dropdown-menu.quicklinks li a {
+  color: #fff;
+  margin-right: 0em;
+}
+
+ul.navbar-nav.global li ul.dropdown-menu.quicklinks li a:hover {
+  background-color: #ffffff;
+  color: #6a3215;
+}
+
+@media (max-width: 1024px) { 
+    ul.navbar-nav.global {
+      font-size: 12px
+    }
+}
+
+@media (max-width: 768px) { 
+    
+    #logo {
+      padding-bottom: 10px;
+    }
+
+    span.logo-head {
+      font-size: 22px;
+    }
+    span.logo-sub {
+      font-size: 13px;
+    }
+    
+    .nav > li > a {
+    padding: 5px 10px;
+    }
+    ul.navbar-nav.global {
+    font-size: .75em;
+    }
+    ul.navbar-nav.global {
+      font-size: 10px
+    }
+
+    .tb-megamenu .nav > li > a {
+      color: #fff;
+      background-color: #0000;
+      font-size: 16px;
+      font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+	  text-transform: uppercase;
+      font-weight: 700;
+	  letter-spacing: 3px;
+      border: 0;
+      padding: 15px;
+    }
+
+    ul.mega-nav.level-1 > li:first-child:not(.no-head) > a {
+      color: #333
+    }
+
+    .tb-megamenu .dropdown-menu li > a {
+      color: #6a3215;
+      border: none;
+    }
+
+    .tb-megamenu .nav > .active > a,
+    .tb-megamenu .nav > .active > a:hover,
+    .tb-megamenu .nav > .active > a:focus {
+      background-color: #000
+    }
+
+    .tb-megamenu .nav > li > a:focus,
+    .tb-megamenu .nav > li > a:hover,
+    .tb-megamenu .nav li.dropdown.open > .dropdown-toggle,
+    .btn-link,
+    .pagination > li > a,
+    .pagination > li > a:hover {
+      color: #333;
+    }
+
+    .tb-megamenu .dropdown-menu {
+      opacity: .9;
+      padding: 1em;
+      border: 0px;
+    }
+
+    .navbar-nav a {
+      color: #222;
+    }
+
+    a.mega-group-title {
+      font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+	  text-transform: uppercase;
+	  letter-spacing: 3px;
+      font-size: 1em;
+    }
+
+    .tb-megamenu .nav li.dropdown.active > .dropdown-toggle,
+    .tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .tb-megamenu .nav > li.dropdown.open.active > a:hover {
+      background-color: #fff;
+      color: #333;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    
+    #logo {
+      padding-bottom: 10px;
+    }
+
+    span.logo-head {
+      font-size: 34px;
+    }
+    span.logo-sub {
+      font-size: 14px;
+    }
+    ul.navbar-nav.global {
+    font-size: .75em;
+    }
+}
+
+@media (max-width: 320px) {
+  ul.col-xs-12.nav.nav-list.globalmobile {
+    font-size: .98em;
+  }
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+  display: block !important
+}
+
+ul.nav li.dropdown ul.dropdown-menu {
+  margin-top: 0
+}
+
+/* Increase width and height of OpenSeadragon viewer */
+
+body.no-sidebars .islandora-large-image-content {
+    width: 100%;
+}
+
+/* Display newspaper page controls horizontally */
+
+.islandora-newspaper-controls > ul > li {
+  display: inline-block;
+  padding-right: 50px;
+}
+
+.islandora-newspaper-controls, .islandora-newspaper-issue-navigator > ul {
+  padding-left: 25px;
+}
+
+@media (min-width: 768px) {
+  .islandora-openseadragon {
+    height: 750px;
+  }
+  body.no-sidebars .islandora-newspaper-content {
+    width: 100%;
+  }
+}
+
+/* Fixes metadata display on mobile */
+
+dl.islandora-metadata-fields {
+  width: 100%;
+  overflow: hidden;
+  padding: 5px;
+  margin: 0
+}
+dl.islandora-metadata-fields dt {
+  float: left;
+  width: 50%;
+  padding: 5px;
+  margin: 0
+}
+dl.islandora-metadata-fields dd {
+  float: left;
+  width: 50%;
+  padding: 5px;
+  margin: 0
+}
+
+.addthis_toolbox a.at300b, .addthis_toolbox a.at300m {
+    padding-right: 5px !important;
+}
+
+a.at300b.at-follow-btn {
+  float: none;
+  display: inline;
+}
+
+.front.addthis_inline_follow_toolbox_rw02.rtecenter {
+  padding-top: 5px;
+}
+
+/* remove img-responsive styling when we don't need it
+div.service-links img, ul.islandora-solr-sort img {
+  display: inherit;
+  width: inherit;
+  height: inherit;
+}
+
+div.service-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+div.service-links li {
+  padding: 5px;
+}
+*/
+/* Properly align sort block */
+
+section#block-islandora-solr-sort {
+  float: right;
+  padding-top: 15px;
+  padding-right: 35px;
+}
+
+#block-islandora-solr-sort h2 {
+  display: inline;
+  font-size: 14px;
+  padding: 0;
+  border-bottom: none;
+}
+
+#block-islandora-solr-sort ul {
+  padding-left: 15px;
+  display: inline;
+}
+
+#block-islandora-solr-sort li{
+  display: inline;
+  padding-left: 15px;
+}
+
+/* Changes slider handles from img to Font Awesome */
+
+.islandora-solr-range-slider .ui-state-default:before, .islandora-solr-range-slider .ui-widget-content .ui-state-default:before, .islandora-solr-range-slider .ui-slider-handle:before {
+    content: "\f0de";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    left: 7px;
+    font-size: 25px;
+}
+.islandora-solr-range-slider .ui-state-default, .islandora-solr-range-slider .ui-widget-content .ui-state-default, .islandora-solr-range-slider .ui-slider-handle {
+    background: top center no-repeat transparent;
+    border: 0px;
+    top: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+/* Break really long words or URLs */
+.csl-bib-body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Range filter */
+
+.islandora-solr-range-slider,
+.islandora-solr-date-filter
+{
+  text-align: left;
+  margin-top: 0.5em;
+}
+
+.islandora-solr-date-filter label
+{
+  display: inline-block;
+  float: left;
+  margin: 5px 0;
+  width: 3.3em;
+}
+.islandora-solr-date-filter label:after {
+  content: ':';
+}
+
+.islandora-solr-date-filter input.form-submit,
+.islandora-solr-range-slider input.form-submit
+{
+  margin-right: 0;
+}
+
+.islandora-solr-date-filter form,
+.islandora-solr-range-slider form
+{
+  width: 100%;
+}
+
+.islandora-solr-date-filter .description
+{
+  margin: 5px 0;
+  text-align: left;
+  font-size: 0.85em;
+}
+
+table.ui-datepicker tbody td.ui-datepicker-current-day a
+{
+  background: yellow;
+}
+
+table.ui-datepicker tbody td.ui-datepicker-today a
+{
+  background: #cbe5fc;
+}
+
+.islandora-solr-range-slider .ui-slider
+{
+  height: 2px;
+  border: 0px;
+  background: #ccc;
+  margin-bottom: 25px;
+}
+
+.islandora-solr-range-slider .ui-slider-range
+{
+  background: #edc240;
+  height: 1px;
+}
+
+.islandora-solr-range-slider .ui-state-default,
+.islandora-solr-range-slider .ui-widget-content .ui-state-default,
+.islandora-solr-range-slider .ui-slider-handle
+{
+  border: 0px;
+  top: 2px; 
+  cursor: pointer;
+}
+
+.islandora-solr-range-slider .ui-slider-handle:hover {
+  border: 0px;
+  top: 2px;
+}
+
+.islandora-solr-range-slider .range-slider-fromto,
+.islandora-solr-range-slider .date-range-slider-gap
+{
+  text-align: left;
+}
+
+.date-range-slider-canvas-wrapper canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#ui-datepicker-div {
+  z-index: 9999; /*must have*/
+}
+
+.slider-popup-from-wrapper,
+.slider-popup-to-wrapper
+{
+  display: none;
+  position: absolute;
+  width: 120px;
+  top: -40px;
+  left: 50%;
+  margin-left: -60px;
+  text-align: center;
+}
+
+.slider-popup-from,
+.slider-popup-to
+{
+  padding: 0px 10px 1px 10px;
+  font-size: 11px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#range-slider-tooltip
+{
+  display: none;
+  position: absolute;
+  width: 250px;
+  text-align: center;
+  z-index: 9999;
+}
+
+#range-slider-tooltip span
+{
+  padding: 0px 10px 1px 10px;
+  font-size: 11px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px 10px 10px 10px;
+}
+
+/* Advanced Search link */
+
+div#edit-simple {
+  margin-bottom:0;
+}
+
+.advanced {
+  float: right;
+}
+
+.advanced a {
+  color: #fff;
+}
+
+article, #block-islandora-solr-advanced {
+  padding: 20px 40px 20px 40px;
+}
+
+#islandora-solr-advanced-terms > div {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#islandora-solr-advanced-terms > div:first-child {
+  padding: 0;
+}
+
+#islandora-solr-advanced-terms > div > div > div {
+  padding-top: 15px;
+}
+
+/* Article styling */
+
+article h2 {
+  color: #6a3215;
+  margin-top: 10px;
+  font-weight: 400;
+  font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+article > div h3, article > div h4 {
+  font-weight: 400;
+  font-family: 'chunkfiveroman', Geneva, "Lucida Sans", Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+article > footer {
+  margin-top: 20px;
+}
+
+article > footer > div.field-name-field-tags, article > footer a {
+  font-size: 12px;
+  color: #333 !important;
+}
+
+article td {
+  padding: 15px;
+  vertical-align: top;
+}
+
+.tb-megamenu .dropdown-menu .active > a.mega-group-title {
+  color: #333;
+}
+
+ul.related_editions {
+  padding-right: 60px;
+}
