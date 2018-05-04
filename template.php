@@ -42,7 +42,7 @@ function nickels_and_dimes_preprocess_islandora_book_book(array &$variables) {
     }
   }
   if (isset($edition)) {
-    include_once('/var/www/drupal/htdocs/sites/all/libraries/easyrdf/EasyRdf.php');
+    include_once('/var/www/drupal/htdocs/sites/all/libraries/easyrdf/lib/EasyRdf.php');
 
     /* instantiation */
     $sparql = new EasyRdf_Sparql_Client('http://backend.niu.dgicloud.com:8081/blazegraph/namespace/dimenovels/sparql');
