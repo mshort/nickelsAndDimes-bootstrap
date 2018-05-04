@@ -42,20 +42,10 @@ function nickels_and_dimes_preprocess_islandora_book_book(array &$variables) {
     }
   }
   if (isset($edition)) {
-    include_once('/var/www/drupal/htdocs/sites/all/libraries/arc2/ARC2.php');
-    /* configuration */
-    $config = array(
-    /* db */
-    'db_host' => 'localhost', /* optional, default is localhost */
-    'db_name' => 'arc2',
-    'db_user' => 'xxx',
-    'db_pwd' => 'xxx',
+    include_once('/var/www/drupal/htdocs/sites/all/libraries/easyrdf/EasyRdf.php');
 
-    /* store name (= table prefix) */
-    'store_name' => 'dimenovels_store',
-    );
     /* instantiation */
-    $sparql = ARC2::getStore($config);
+    $sparql = new EasyRdf_Sparql_Client('http://backend.niu.dgicloud.com:8081/blazegraph/namespace/dimenovels/sparql');
     $work_results = $sparql->query('SELECT ?work ?title WHERE {<'.$edition.'> <http://rdaregistry.info/Elements/u/containerOf> ?work_edition . ?work_edition <https://dimenovels.org/ontology#IsRealizationOfCreativeWork> ?work. ?work <http://rdaregistry.info/Elements/u/preferredTitleForTheResource> ?title .}', 'rows');
     foreach ($work_results as $row) {
       $work = $row['work'];
