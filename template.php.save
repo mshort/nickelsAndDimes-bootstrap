@@ -12,28 +12,24 @@ function nickels_and_dimes_preprocess_page(&$variables) {
 }
 
 function nickels_and_dimes_preprocess_islandora_book_book(array &$variables) {
-
   $object = $variables['object'];
   $rels = $object->relationships->get();
   $variables['rels'] = $rels;
   $related = array();
-
   foreach ($rels as $key => $rel) {
     if ($rel['predicate']['value'] == "IsCopyOf") {
       $edition = $rel['object']['value'];
     }
   }
-
   if (isset($edition)) {
     include_once('/var/www/drupal7/sites/all/libraries/easyrdf/lib/EasyRdf.php');
 
-    // instantiation
+    /* instantiation */
     $sparql = new EasyRdf_Sparql_Client('http://backend.niu.dgicloud.com:8081/blazegraph/namespace/dimenovels/sparql');
     $work_results = $sparql->query('SELECT ?work ?title WHERE {<'.$edition.'> <http://rdaregistry.info/Elements/u/containerOf> ?work_edition . ?work_edition <https://dimenovels.org/ontology#IsRealizationOfCreativeWork> ?work. ?work <http://rdaregistry.info/Elements/u/preferredTitleForTheResource> ?title .}', 'rows');
-
-    foreach ($work_results as $row) {
-      $work = $row->work;
-      $title = $row->title;
+    //foreach ($work_results as $row) {
+      //$work = $row['work'];
+      $title = $row['title'];
       // Start the query
       $query_string = "islandora/search/PID:";
       // Get the edition URIs
@@ -41,25 +37,22 @@ function nickels_and_dimes_preprocess_islandora_book_book(array &$variables) {
       $i = 0;
       $queryPids = array();
       foreach ($edition_results as $row) {
-        $edition = $row->edition;
+        $edition = $row['edition'];
         // Retrieve the pid
-        $query = "SELECT ?object WHERE {?object <https://dimenovels.org/ontology#IsCopyOf> <".$edition."> . FILTER(?object!=<info:fedora/".$object.">)}";
+        $query = "SELECT ?object FROM <#ri> WHERE {?object <https://dimenovels.org/ontology#IsCopyOf> <".$edition."> . FILTER(?object!=<info:fedora/".$object.">)}";
         $connection = islandora_get_tuque_connection();
         $edition_results = $connection->repository->ri->sparqlQuery($query);
-
         if (isset($edition_results[0])) {
           $edition_pid = '"'.$edition_results[0]['object']['value'].'"';
           $queryPids[] = $edition_pid;
         }
       }
       if (count($queryPids) > 0) {
-        //$works[$work]['title']=$title;
-        //$works[$work]['query']=$query_string . '(' . implode(' OR ', $queryPids) . ')';
-        //$editions[] = l($works[$work]['title'], $works[$work]['query'], array('query' => array('sort'=>'mods_dateIssued_dt asc')));
-        $editions[] = l($title, $query_string . '(' . implode(' OR ', $queryPids) . ')', array('query' => array('sort'=>'mods_dateIssued_dt asc')));
+        $works[$work]['title']=$title;
+        $works[$work]['query']=$query_string . '(' . implode(' OR ', $queryPids) . ')';
+        $editions[] = l($works[$work]['title'], $works[$work]['query'], array('query' =>array('sort'=>'mods_dateIssued_dt asc')));
       }
     }
-
     if (!empty($editions)) {
       $list_variables = array(
         'items' => $editions,

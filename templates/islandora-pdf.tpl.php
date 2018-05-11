@@ -28,12 +28,6 @@
     <?php $block = module_invoke('addthis', 'block_view', 'addthis_block'); ?>
     <?php print render($block['content']); ?>
   </div>
-  <?php
-    $blockObject = block_load('islandora_blocks', 'citation');
-    $block = _block_get_renderable_array(_block_render_blocks(array($blockObject)));
-    $output = drupal_render($block);
-    print $output
-  ?>
 </row>
   <div class="col-lg-8 col-md-8 col-sm-8">
     <?php if ($parent_collections): ?>
