@@ -557,15 +557,40 @@ dl.islandora-metadata-fields dd {
 }
 
 div#BRinfo {
-  height: 620px
+  height: 620px;
+  width: 500px;
 }
 
 div#BRfulltext .BRfloat {
-  height: auto !important
+  height: auto !important;
+}
+
+
+div#BRinfo {
+  height: 100%;
+}
+
+.BRfloat p {
+  width: 100%;
+  font-size: inherit;
+  margin: 0;
+}
+
+#BRinfo > fieldset > div > dl > dt {
+  width: 30%;
+  font-size: 1em;
+  font-family: "oldnewspapertypesregular",Helvetica,sans-serif;
+}
+
+#BRinfo > fieldset > div > dl > dd {
+  width: 70%;
+  padding-left: 50px;
+  font-size: 1em;
+  font-family: "oldnewspapertypesregular",Helvetica,sans-serif;
 }
 
 .textTop {
-  font-size: 12px
+  font-size: 12px;
 }
 
 @media (max-width:767px) { 

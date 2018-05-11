@@ -36,4 +36,19 @@ drupal_add_html_head($element, 'og_image');
     <?php $block = module_invoke('addthis', 'block_view', 'addthis_block'); ?>
     <?php print render($block['content']); ?>
   </div>
+  <div id="download" class="col-lg-4 col-md-4 col-sm-4">
+      <h2 class="block-title">Download</h2>
+      <ul>
+      <?php if(isset($object['PDF'])): ?>
+        <li>
+          <a href='<?php print "/islandora/object/{$object->id}/datastream/PDF"; ?>'>PDF (<?php print human_filesize($object['PDF']->size); ?>)</a>
+        </li>
+      <?php endif; ?>
+      <?php if(isset($object['OCR'])): ?>
+        <li>
+         <a href='<?php print "/islandora/object/{$object->id}/datastream/OCR"; ?>'>Full Text (<?php print human_filesize($object['OCR']->size); ?>)</a>
+        </li>
+      <?php endif; ?>
+    </ul>
+  </div>
 </row>

@@ -41,9 +41,9 @@ drupal_add_html_head($element, 'og_image');
         <a href='<?php print "/islandora/object/{$object->id}/datastream/PDF"; ?>'>PDF (<?php print human_filesize($object['PDF']->size); ?>)</a>
       </li>
         <?php endif; ?>
-        <?php if(isset($cover)): ?>
+        <?php if(isset($object['OCR'])): ?>
       <li>
-        <a href='<?php print "/islandora/object/{$cover->id}/datastream/JPG"; ?>'>Cover (<?php print human_filesize($cover['JPG']->size); ?>)</a>
+       <a href='<?php print "/islandora/object/{$object->id}/datastream/OCR"; ?>'>Full Text (<?php print human_filesize($object['OCR']->size); ?>)</a>
       </li>
         <?php endif; ?>
     </ul>
