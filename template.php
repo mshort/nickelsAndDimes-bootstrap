@@ -46,7 +46,7 @@ function nickels_and_dimes_preprocess_islandora_book_book(array &$variables) {
 
     /* instantiation */
     $sparql = new EasyRdf_Sparql_Client('http://backend.niu.dgicloud.com:8081/blazegraph/namespace/dimenovels/sparql');
-    $work_results = $sparql->query('SELECT ?work ?title WHERE {<'.$edition.'> <http://rdaregistry.info/Elements/u/containerOf> ?work_edition . ?work_edition <https://dimenovels.org/ontology#IsRealizationOfCreativeWork> ?work. ?work <http://rdaregistry.info/Elements/u/preferredTitleForTheResource> ?title .}', 'rows');
+    $work_results = $sparql->query('SELECT ?work ?title WHERE {<'.$edition.'#issue> <http://rdaregistry.info/Elements/u/containerOf> ?work_edition . ?work_edition <https://dimenovels.org/ontology#IsRealizationOfCreativeWork> ?work. ?work <http://rdaregistry.info/Elements/u/preferredTitleForTheResource> ?title .}', 'rows');
     foreach ($work_results as $row) {
       $work = $row['work'];
       $title = $row['title'];
@@ -57,7 +57,7 @@ function nickels_and_dimes_preprocess_islandora_book_book(array &$variables) {
       $i = 0;
       $queryPids = array();
       foreach ($edition_results as $row) {
-        $edition = $row['edition'];
+        $edition = str_replace("#issue","",$row->edition);
         // Retrieve the pid
         $query = "SELECT ?object FROM <#ri> WHERE {?object <https://dimenovels.org/ontology#IsCopyOf> <".$edition."> . FILTER(?object!=<info:fedora/".$object.">)}";
         $connection = islandora_get_tuque_connection();
